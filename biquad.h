@@ -23,7 +23,7 @@ float filt_biquad_apply(filt_biquad_t *f, float in)
 	float out;
 	out = f->b0 * in + d1;
 	// update filter
-	f->d1 = f->b1 * in + f->a1 * out + f->d2;
-	f->d2 = f->b2 * in + f->a2 * out;
+	f->d1 = f->b1 * in - f->a1 * out + f->d2;
+	f->d2 = f->b2 * in - f->a2 * out;
 	return out;
 }
